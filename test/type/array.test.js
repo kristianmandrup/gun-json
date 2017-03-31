@@ -10,34 +10,26 @@ test('fromArray', t => {
 test.cb('toArray', t => {
   // t.plan(1)
 
-  let cb = (data) => {
-    console.log(data.name)
-    t.deepEqual(data.name, 'zeta')
-    t.end()
-  }
-
-  let mike = gun.get('mike')
-  mike.put({
-    name: 'mike'
+  var you = gun.get('kristian').put({
+    name: 'Kristian'
   })
-  let friend = mike.path('friend')
-  friend.put({
-    name: 'anna'
+  var bestfriend = gun.get('bestfriend').put({
+    name: 'Bob'
   })
-  console.log('friend', friend)
-  friend.val(cb)
-  mike.path('friend').val(cb)
-
-  mike.val((data) => {
-    console.log('mike', data)
-    console.log('fields', Object.keys(data))
+  var otherFriend = gun.get('otherfriend').put({
+    name: 'Jake'
   })
 
-  // console.log('get mike friend')
-  // mike.path('friend').val((data) => {
-  //   console.log(data)
-  //   console.log(data.name)
-  //   t.deepEqual(data.name, 'zeta')
-  //   t.end()
-  // })
+  you.path('friends').set(bestfriend)
+  you.path('friends').set(otherfriend)
+
+  var you = gun.get('kristian').put({
+    name: 'Kristian'
+  })
+  you.path('friends').set({
+    name: 'Bob'
+  })
+  you.path('friends').set({
+    name: 'Jake'
+  })
 })
