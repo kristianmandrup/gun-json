@@ -1,5 +1,7 @@
 # Gun-JSON
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kristianmandrup/gun-json.svg)](https://greenkeeper.io/)
+
 ![Gun Jason](https://github.com/kristianmandrup/gun-json/raw/master/gun-json.jpg)
 
 [Gun.js](http://gun.js.org/) marshal & unmarshal JSON data (ie. save/restore)
